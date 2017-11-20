@@ -20,7 +20,6 @@
 		9D9371771FC11FBE008D9735 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D9371761FC11FBE008D9735 /* ProfileViewController.swift */; };
 		9D9371791FC126B3008D9735 /* SavedItemsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D9371781FC126B3008D9735 /* SavedItemsViewController.swift */; };
 		9DBAC77F1F907F3C0080B022 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DBAC77E1F907F3C0080B022 /* AppDelegate.swift */; };
-		9DBAC7811F907F3C0080B022 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DBAC7801F907F3C0080B022 /* ViewController.swift */; };
 		9DBAC7841F907F3C0080B022 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9DBAC7821F907F3C0080B022 /* Main.storyboard */; };
 		9DBAC7871F907F3C0080B022 /* TravelLocationApp.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 9DBAC7851F907F3C0080B022 /* TravelLocationApp.xcdatamodeld */; };
 		9DBAC7891F907F3C0080B022 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9DBAC7881F907F3C0080B022 /* Assets.xcassets */; };
@@ -54,7 +53,6 @@
 		9D9371781FC126B3008D9735 /* SavedItemsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedItemsViewController.swift; sourceTree = "<group>"; };
 		9DBAC77B1F907F3C0080B022 /* OpenDayApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OpenDayApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9DBAC77E1F907F3C0080B022 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		9DBAC7801F907F3C0080B022 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		9DBAC7831F907F3C0080B022 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		9DBAC7861F907F3C0080B022 /* TravelLocationApp.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = TravelLocationApp.xcdatamodel; sourceTree = "<group>"; };
 		9DBAC7881F907F3C0080B022 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -148,7 +146,6 @@
 			children = (
 				9DBAC7931F9080030080B022 /* DetailViewController.swift */,
 				9DFD6A391FBF8A2500FDC79A /* LoginViewController.swift */,
-				9DBAC7801F907F3C0080B022 /* ViewController.swift */,
 				9D9371741FC11F03008D9735 /* SearchViewController.swift */,
 				9D9371761FC11FBE008D9735 /* ProfileViewController.swift */,
 				9D9371781FC126B3008D9735 /* SavedItemsViewController.swift */,
@@ -365,7 +362,6 @@
 				9DC4FD451FC16D4B00E61EFE /* InterviewViewController.swift in Sources */,
 				9DC4FD471FC22EDD00E61EFE /* Course.swift in Sources */,
 				9D9371711FBFADD8008D9735 /* FBButton.swift in Sources */,
-				9DBAC7811F907F3C0080B022 /* ViewController.swift in Sources */,
 				9D9371791FC126B3008D9735 /* SavedItemsViewController.swift in Sources */,
 				9D93716D1FBFA963008D9735 /* User.swift in Sources */,
 				9D306A641FC24609006824E9 /* CourseExpertCell.swift in Sources */,

@@ -14,8 +14,6 @@ import AVFoundation
 
 class DetailViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextFieldDelegate, MKMapViewDelegate {
     
-    let managedObjectContext = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
-    
     
     @IBOutlet weak var personNameLabel: UILabel!
     @IBOutlet weak var personImage: UIImageView!

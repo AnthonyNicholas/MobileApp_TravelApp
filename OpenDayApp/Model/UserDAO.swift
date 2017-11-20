@@ -20,6 +20,8 @@ class UserDAO{
         let currentUserName = Auth.auth().currentUser?.displayName
         print(currentUserName!)
         Database.database().reference().child("users").child(currentUserName!).observeSingleEvent(of: DataEventType.value, with: { (snapshot) in
+            print("Getting User Info")
+            print(JSON(snapshot.value!))
             let user: User = User(user: JSON(snapshot.value!))
             completionHandler(user, snapshot)
         })
@@ -32,7 +34,7 @@ class UserDAO{
         Database.database().reference().child("users").child(currentUserName!).child("lastName").setValue(lastName!)
     }
     
-    func createUser(firstName: String?, lastName: String?, email: String?, profilePicture: String?, username: String?){
+    func createUser(firstName: String?, lastName: String?, email: String?, profilePicture: String?, userType: String?, username: String?){
         print("here for new user");
         let databaseRef = Database.database().reference()
         databaseRef.child("users").child("\(username!)").setValue([
@@ -40,6 +42,8 @@ class UserDAO{
             "lastName": lastName!,
             "email": email!,
             "profilePicture": profilePicture!,
+            "userType": "Student",
+            "video": "https://youtu.be/CUvZJ-DoeL0?t=59s"
             ])
     }
     
@@ -91,7 +95,7 @@ class UserDAO{
                     
                     self.checkForUserExistance(fullName: fullName, completionHandler: { (check) in
                         if(!check){
-                            self.createUser(firstName: firstName, lastName: lastName, email: email, profilePicture: picture, username: fullName)
+                            self.createUser(firstName: firstName, lastName: lastName, email: email, profilePicture: picture, userType: "Student", username: fullName)
                         }
                         else{
                             print("User has already been created!")

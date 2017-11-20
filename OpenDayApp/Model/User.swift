@@ -19,18 +19,27 @@ class User{
     var video: String? = ""
     var userType: String? = ""
     var associatedCourse: String? = ""
+    var hotCoursesArray: [String?] = []
     
     init(user: JSON){
         self.firstName! = user["firstName"].string!
         self.lastName! = user["lastName"].string!
         self.email! = user["email"].string!
         self.profilePicture! = user["profilePicture"].string!
+        if let vid = user["video"].string{
+            self.video! = vid
+        }
         self.userType! = user["userType"].string!
         if let assocCourse = user["associatedCourse"].string{
             self.associatedCourse! = assocCourse
         }
-        if let vid = user["video"].string{
-            self.video! = vid
+        print("Putting courses into hotcourse array")
+        for (key, course) in user["hotCourses"]{
+            print(key)
+            print(course)
+            print(course.stringValue)
+            print(course.string!)
+            hotCoursesArray.append(course.stringValue)
         }
     }
 

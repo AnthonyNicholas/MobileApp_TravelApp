@@ -14,8 +14,6 @@ import WebKit
 
 class InterviewViewController: UIViewController, UINavigationControllerDelegate, UITextFieldDelegate, WKNavigationDelegate {
 
-//    let webView = WKWebView()
-
     let userDAO: UserDAO = UserDAO()
     weak var person: User?
     @IBOutlet weak var InterviewVideoView: WKWebView!
@@ -31,8 +29,8 @@ class InterviewViewController: UIViewController, UINavigationControllerDelegate,
         activityIndicator.startAnimating()
         InterviewVideoView.center = self.view.center
         InterviewVideoView.navigationDelegate = self
-        let url = URL(string: "https://youtu.be/CUvZJ-DoeL0?t=59s")
-//        let url = URL(string: (person?.getVideo())!)
+//        let url = URL(string: "https://youtu.be/CUvZJ-DoeL0?t=59s")
+        let url = URL(string: (person?.getVideo())!)
         let request = URLRequest(url: url!)
         print("starting")
         InterviewVideoView.load(request)

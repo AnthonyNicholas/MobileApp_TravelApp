@@ -12,56 +12,6 @@ import SwiftyJSON
 
 class CourseDAO{
     
-//    func getCourseInformation(completionHandler:@escaping(Course, DataSnapshot) ->()){
-//        let currentCourseName = Auth.auth().currentCourse?.displayName
-//        Database.database().reference().child("courses").child(currentCourseName!).observeSingleEvent(of: DataEventType.value, with: { (snapshot) in
-//            let course: Course = Course(course: JSON(snapshot.value!))
-//            completionHandler(course, snapshot)
-//        })
-//    }
-//
-//    func saveProfileInformation(firstName: String?, lastName: String?){
-//        let currentCourseName = Auth.auth().currentCourse?.displayName
-//
-//        Database.database().reference().child("courses").child(currentCourseName!).child("firstName").setValue(firstName!)
-//        Database.database().reference().child("courses").child(currentCourseName!).child("lastName").setValue(lastName!)
-//    }
-//
-//    func createCourse(firstName: String?, lastName: String?, email: String?, profilePicture: String?, coursename: String?){
-//        print("here for new course");
-//        let databaseRef = Database.database().reference()
-//        databaseRef.child("courses").child("\(coursename!)").setValue([
-//            "firstName": firstName!,
-//            "lastName": lastName!,
-//            "email": email!,
-//            "profilePicture": profilePicture!,
-//            ])
-//    }
-    
-//    func checkForCourseExistance(fullName: String?, completionHandler:@escaping(Bool) ->()){
-//        let databaseRef = Database.database().reference()
-//        
-//        DispatchQueue.global().async {
-//            databaseRef.observeSingleEvent(of: DataEventType.value, with: { (snapshot) in
-//                DispatchQueue.main.async {
-//                    if(snapshot.hasChild("courses")){
-//                        databaseRef.child("courses").observeSingleEvent(of: DataEventType.value, with: { (snapshot) in
-//                            if(snapshot.hasChild(fullName!)){
-//                                completionHandler(true)
-//                            }
-//                            else{
-//                                completionHandler(false)
-//                            }
-//                        })
-//                    }
-//                    else{
-//                        completionHandler(false)
-//                    }
-//                }
-//            })
-//        }
-//    }
-    
     // Gets course profile picture from firebase DB
     
     func getProfilePicture(course: Course?, completionHandler:@escaping(UIImage?)-> ()){
@@ -102,9 +52,89 @@ class CourseDAO{
             completionHandler(retrievedCourses)
         })
     }
-    
-    internal func FacebookSignOut(){
-        try! Auth.auth().signOut()
+
+    // Retrieves a specific course from firebase DB    
+    func getSpecificCourse(courseName: String, completionHandler:@escaping([Course]) ->()){
+        var retrievedCourse : [Course] = [Course]()
+        Database.database().reference().child("Courses").observeSingleEvent(of: DataEventType.value, with: { (snapshot) in
+            for child in snapshot.children.allObjects as! [DataSnapshot] {
+                let newCourse: Course = Course(course: JSON(child.value!))
+                if newCourse.getCourseName() == courseName{
+                    retrievedCourse.append(newCourse)
+                }
+            }
+            completionHandler(retrievedCourse)
+        })
     }
     
+    // Retrieves users of specified type, course from firebase DB
+    
+//    func getCourseExperts(course: String, completionHandler:@escaping([User]) ->()){
+//
+//        var retrievedUsers : [User] = [User]()
+//        Database.database().reference().child("users").observeSingleEvent(of: DataEventType.value, with: { (snapshot) in
+//            for child in snapshot.children.allObjects as! [DataSnapshot] {
+//                let newUser: User = User(user: JSON(child.value!))
+//                if newUser.getUserType() == "Expert" && newUser.getAssociatedCourse() == course{
+//                    retrievedUsers.append(newUser)
+//                }
+//            }
+//            completionHandler(retrievedUsers)
+//        })
+//    }
+    
 }
+
+
+//    func getCourseInformation(completionHandler:@escaping(Course, DataSnapshot) ->()){
+//        let currentCourseName = Auth.auth().currentCourse?.displayName
+//        Database.database().reference().child("courses").child(currentCourseName!).observeSingleEvent(of: DataEventType.value, with: { (snapshot) in
+//            let course: Course = Course(course: JSON(snapshot.value!))
+//            completionHandler(course, snapshot)
+//        })
+//    }
+//
+//    func saveProfileInformation(firstName: String?, lastName: String?){
+//        let currentCourseName = Auth.auth().currentCourse?.displayName
+//
+//        Database.database().reference().child("courses").child(currentCourseName!).child("firstName").setValue(firstName!)
+//        Database.database().reference().child("courses").child(currentCourseName!).child("lastName").setValue(lastName!)
+//    }
+//
+
+//func createCourse(firstName: String?, lastName: String?, email: String?, profilePicture: String?, coursename: String?){
+//    print("here for new course");
+//    let databaseRef = Database.database().reference()
+//    databaseRef.child("courses").child("\(coursename!)").setValue([
+//        "firstName": firstName!,
+//        "lastName": lastName!,
+//        "email": email!,
+//        "profilePicture": profilePicture!,
+//        ])
+//}
+
+
+
+//    func checkForCourseExistance(fullName: String?, completionHandler:@escaping(Bool) ->()){
+//        let databaseRef = Database.database().reference()
+//
+//        DispatchQueue.global().async {
+//            databaseRef.observeSingleEvent(of: DataEventType.value, with: { (snapshot) in
+//                DispatchQueue.main.async {
+//                    if(snapshot.hasChild("courses")){
+//                        databaseRef.child("courses").observeSingleEvent(of: DataEventType.value, with: { (snapshot) in
+//                            if(snapshot.hasChild(fullName!)){
+//                                completionHandler(true)
+//                            }
+//                            else{
+//                                completionHandler(false)
+//                            }
+//                        })
+//                    }
+//                    else{
+//                        completionHandler(false)
+//                    }
+//                }
+//            })
+//        }
+//    }

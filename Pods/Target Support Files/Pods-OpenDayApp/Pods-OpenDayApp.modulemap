@@ -1,0 +1,6 @@
+framework module Pods_OpenDayApp {
+  umbrella header "Pods-OpenDayApp-umbrella.h"
+
+  export *
+  module * { export * }
+}
